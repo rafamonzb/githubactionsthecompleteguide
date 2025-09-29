@@ -1,0 +1,9 @@
+body {margin: 0; background-color: #f6f7fb;}
+.container {max-width: 800px; margin: 48px auto; padding: 0 16px;}
+p {margin: 8px 0;}
+.controls {display: flex; align-items: center; gap: 12px; margin: 16px 0 24px;}
+button {padding: 10px 16px; border: 0; border-radius: 12px; background-color: #6366f1; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px;}
+.card {display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; padding: 20px; border-radius: 16px; box-shadow: 0 6px 20px; align-items: center;}
+.col {text-align: center;}
+.arrow {font-size: 28px;}
+.name {font-size: 18px; font-weight: 700; text-transform: capitalize;}
