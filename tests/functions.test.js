@@ -10,6 +10,8 @@ import{
   getRandomEvolutionChain
 } from "../functions.js"
 
+import {expect, jest, test, describe, global} from "@jest/globals";
+
 describe('randId', () => {
   test('random number is between 1 and 255', () => {
     const origRandom = Math.random;
