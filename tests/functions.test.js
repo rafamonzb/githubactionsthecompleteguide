@@ -1,6 +1,7 @@
 /**
- * @jest-environment mode
+ * @jest-environment node
  */
+
 import{
   API_BASE,
   randId,
