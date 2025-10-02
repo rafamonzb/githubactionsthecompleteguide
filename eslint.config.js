@@ -6,7 +6,7 @@ const globals = require('globals');
 // import { defineConfig } from "eslint/config";
 
 module.exports = [
-  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
+  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, languageOptions: { globals: globals.browser } },
   { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   { files: ["**/*.test.*", "**/*.spec.*"], languageOptions: {
     globals: {
