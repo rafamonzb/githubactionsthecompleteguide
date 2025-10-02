@@ -2,6 +2,6 @@ name: CI
 on: push
 jobs:
   lint:
-    uses: ./lint.yaml
+    uses: ./.github/workflows/lint.yaml
   test:
-    uses: ./test.yaml
+    uses: ./.github/workflows/test.yaml
