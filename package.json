@@ -1,5 +1,5 @@
 {
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
     "lint": "eslint --ext .cjs"
