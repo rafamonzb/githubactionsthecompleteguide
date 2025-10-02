@@ -30,7 +30,7 @@ async function run() {
   nextNameE1.textContent = "-";
 
   try {
-    const {id,data} = await getRandomEvolutionChain();
+    const {data} = await getRandomEvolutionChain();
     const {base,next} = pickBaseAndNext(data.chain);
 
     if (!base) throw new Error("La cadena no tiene especie base.");
@@ -52,7 +52,7 @@ async function getRandomEvolutionChain() {
     try {
       const data = await deps.fetchJson(`${API_BASE}${id}/`);
       return {id,data};
-    } catch (e) {
+    } catch {
       await deps.sleep(100 + attempt*50);
     }
   }
