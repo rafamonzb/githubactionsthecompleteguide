@@ -1,8 +1,8 @@
 {
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
-    "lint": "eslint --ext .cjs"
+    "lint": "eslint"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.28.3",

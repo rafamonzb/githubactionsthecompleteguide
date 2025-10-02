@@ -1,12 +1,9 @@
-// import js from "@eslint/js";
-const js = require('@eslint/js');
-const globals = require('globals');
-// const defineConfig = require('eslint/config');
-// import globals from "globals";
-// import { defineConfig } from "eslint/config";
+import js from "@eslint/js";
+import globals from "globals";
+import { defineConfig } from "eslint/config";
 
-module.exports = [
-  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, languageOptions: { globals: globals.browser } },
+export default defineConfig([
+  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
   { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   { files: ["**/*.test.*", "**/*.spec.*"], languageOptions: {
     globals: {
@@ -14,4 +11,4 @@ module.exports = [
       ...globals.browser,
     }
   }}
-];
+]);
