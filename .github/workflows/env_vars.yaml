@@ -1,4 +1,4 @@
-name: CI
+name: Exercise 4
 on: workflow_dispatch
 env:
   globalVariable: globalEnvVariableToEcho
