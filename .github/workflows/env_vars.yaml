@@ -1,0 +1,14 @@
+name: CI
+on: workflow_dispatch
+env:
+  globalVariable: globalEnvVariableToEcho
+jobs:
+  echo:
+    env: 
+     jobVariable: jobEnvVariableToEcho
+    runs-on: ubuntu-latest
+    steps:
+      - name: echoGlobalVariable
+        run: echo "globalEnvVariableToEcho is ${{ env.globalVariable }}"
+      - name: echoJobVariable
+        run: echo "jobEnvVariableToEcho is ${{ env.jobVariable }}"
