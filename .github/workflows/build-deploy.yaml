@@ -2,27 +2,28 @@
 # and https://github.com/actions/upload-pages-artifact which both are GitHub's
 # official documentation.
 name: Build and Deploy
-on: workflow_call
+
+on: 
+  workflow_call:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - name: Dependency install
-        run: npm ci
-      - name: Build
-        id: build
-        run: npm run build
       - name: Upload artifact files
         id: upload
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build_outputs_folder/
+          path: src
+
   deploy: 
     environment:
       name: github-pages
