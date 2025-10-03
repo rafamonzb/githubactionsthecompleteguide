@@ -3,9 +3,7 @@
 # official documentation.
 name: Build and Deploy
 
-on: 
-  workflow_call:
-    branches: [main]
+on: workflow_call
 
 permissions:
   contents: read
