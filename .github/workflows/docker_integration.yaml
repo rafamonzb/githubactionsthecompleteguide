@@ -1,8 +1,5 @@
 name: Exercise 7
-on: 
-  push:
-    branches:
-      - 'main'
+on: workflow_dispatch
 jobs:
   build_image:
     runs-on: ubuntu-latest
