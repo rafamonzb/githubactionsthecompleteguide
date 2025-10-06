@@ -1,0 +1,17 @@
+name: Exercise 5
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        node: [12,14,16,18,20]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Dependency install
+        run: npm ci
+      - name: Run test
+        run: npm run test
