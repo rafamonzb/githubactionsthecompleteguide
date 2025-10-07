@@ -1,0 +1,17 @@
+name: Exercise 9
+on: 
+  push: 
+    branches: 
+      - 'main'
+jobs:
+  notify-teams:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Notify Teams
+        uses: rafamonzb/newAction/.github/actions/newAction@main
+        with:
+          webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          title: "GitHub notification"
+          message: "Workflow ran successfully and action worked without problems"
