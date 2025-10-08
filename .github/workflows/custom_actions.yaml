@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Notify Teams
-        uses: rafamonzb/newAction/.github/actions/newAction@main
+        uses: rafamonzb/newAction/.github/actions/action@main
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: "GitHub notification"
