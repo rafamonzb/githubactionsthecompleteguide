@@ -14,5 +14,5 @@ jobs:
         uses: rafamonzb/newAction/.github/actions@main
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          title: "GitHub notification"
+          # title: "GitHub notification"
           message: "Workflow ran successfully and action worked without problems"
