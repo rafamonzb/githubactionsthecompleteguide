@@ -21,6 +21,9 @@ jobs:
           mv src.tar.gz ./artifactManagement/src.tar.gz
           cd artifactManagement
 
+          git config --local user.email "rafael.monzo-bravo@capgemini.com"
+          git config --local user.name "rafamonzb"
+
           git remote -v
 
           git add .
