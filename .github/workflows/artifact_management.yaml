@@ -1,8 +1,5 @@
 name: Exercise 10
-on: 
-  push:
-    branches:
-      - main
+on:
   workflow_dispatch:
 jobs:
   compress_push:
@@ -22,7 +19,7 @@ jobs:
 
       - name: Compress
         run: "tar czf ./artifact/src.tar.gz ./mainrepo/src"
-        
+
       - name: Push to artifact repo
         env:
           COMMIT_MESSAGE: Create or update artifact file
