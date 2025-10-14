@@ -8,25 +8,33 @@ jobs:
   compress_push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout main repo
         uses: actions/checkout@v4
+        with:
+          path: mainrepo
+
+      - name: Checkout artifact repo
+        uses: actions/checkout@v4
+        with:
+          repository: rafamonzb/artifactManagement
+          token: ${{ secrets.PAT_TOKEN}}
+          path: artifact
+
       - name: Compress
-        run: "tar czf src.tar.gz ./src"
-      - name: Push to secondary repo
+        run: "tar czf ./artifact/src.tar.gz ./mainrepo/src"
+        
+      - name: Push to artifact repo
+        env:
+          COMMIT_MESSAGE: Create or update artifact file
+          COMMIT_AUTHOR: github-actions[bot]
+          COMMIT_EMAIL: username@users.noreply.github.com
         run: |
-          git config --unset-all http.https://github.com/.extraheader
+          cd artifact
 
-          git clone https://github.com/rafamonzb/artifactManagement.git
-
-          mv src.tar.gz ./artifactManagement/src.tar.gz
-          cd artifactManagement
-
-          git config --local user.email "rafael.monzo-bravo@capgemini.com"
-          git config --local user.name "rafamonzb"
-
-          git remote -v
+          git config --global user.email "${{ env.COMMIT_EMAIL }}"
+          git config --global user.name "${{ env.COMMIT_AUTHOR }}"
 
           git add .
-          git commit -m "Add or renew artifact"
+          git commit -m "${{ env.COMMIT_MESSAGE }}"
 
-          git push --set-upstream origin main
+          git push
