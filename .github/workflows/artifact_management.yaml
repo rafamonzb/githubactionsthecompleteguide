@@ -12,15 +12,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Compress
         run: "tar czf src.tar.gz ./src"
-      - name: Commit
+      - name: Push to secondary repo
         run: |
-          git add src.tar.gz
+          git config --unset-all http.https://github.com/.extraheader
+
+          git clone https://github.com/rafamonzb/artifactManagement.git
+
+          mv src.tar.gz ./artifactManagement/src.tar.gz
+          cd artifactManagement
+
           git config --local user.email "rafael.monzo-bravo@capgemini.com"
           git config --local user.name "rafamonzb"
+          git add .
           git commit -m "Add or renew artifact"
-      - name: Push
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT_TOKEN }}
-          repository: rafamonzb/artifactManagement
-          branch: main
+          git push
