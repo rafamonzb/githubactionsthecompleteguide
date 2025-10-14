@@ -19,17 +19,17 @@ jobs:
         run: npm ci
 
       - name: Test with coverage
-        run: npm test -- --coverage --coverageReporters=text --coverageReporters=cobertura
+        run: npx jest --coverage --coverageReporters=text --coverageReporters=cobertura
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: coverage/lcov-report
+          path: coverage/cobertura-coverage.xml
         
       - name: Add summary
         id: coverage
         run: |
-          COVERAGE=$(grep -m 1 "All files" coverage/lcov-report/index.html | sed -E 's/.* ([0-9]+)%.*$/\1/')
-          echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
+          PERCENTAGE=$(grep -o 'line-rate="[0-9.]*"' coverage/cobertura-coverage.xml | head -1 | sed 's/[^0-9.]//g')
+          COVERAGE=$(awk "BEGIN {print int($PERCENTAGE * 100)}")
           echo "CODE COVERAGE: **${COVERAGE}%**" >> $GITHUB_STEP_SUMMARY
