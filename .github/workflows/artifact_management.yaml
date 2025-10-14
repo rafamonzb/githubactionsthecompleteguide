@@ -19,7 +19,7 @@ jobs:
           git config --local user.name "rafamonzb"
           git commit -m "Add or renew artifact"
       - name: Push
-        uses: ad-m/github-push-action@v1.0.0
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
           repository: rafamonzb/artifactManagement
