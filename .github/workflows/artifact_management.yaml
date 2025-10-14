@@ -1,0 +1,24 @@
+name: Exercise 9
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  compress_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Compress
+        run: "tar czf src.tar.gz ./src"
+      - name: Commit
+        run: |
+          git add src.tar.gz
+          git config --local user.email "rafael.monzo-bravo@capgemini.com"
+          git config --local user.name "rafamonzb"
+          git commit -m "Add or renew artifact"
+      - name: Push
+        uses: ad-m/github-push-action@v1.0.0
+        with:
+          repository: rafamonzb/artifactManagement
+          branch: main
