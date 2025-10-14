@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test with coverage
-        run: npx jest --coverage --coverageReporters=text --coverageReporters=covertura
+        run: npx jest --coverage --coverageReporters=text --coverageReporters=cobertura
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
