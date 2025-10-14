@@ -16,13 +16,14 @@ jobs:
         run: |
           git config --unset-all http.https://github.com/.extraheader
 
-          git clone https://github.com/rafamonzb/artifactManagement.git
+          git clone https://rafamonzb:$GITHUB_TOKEN@github.com/rafamonzb/artifactManagement.git
 
           mv src.tar.gz ./artifactManagement/src.tar.gz
           cd artifactManagement
 
-          git config --local user.email "rafael.monzo-bravo@capgemini.com"
-          git config --local user.name "rafamonzb"
+          git remote -v
+
           git add .
           git commit -m "Add or renew artifact"
-          git push
+
+          git push --set-upstream origin main
