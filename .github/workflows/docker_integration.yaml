@@ -1,4 +1,4 @@
-name: Exercise 7
+name: Exercise 07
 on: workflow_dispatch
 jobs:
   build_image:

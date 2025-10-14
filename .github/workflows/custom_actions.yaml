@@ -1,4 +1,4 @@
-name: Exercise 9
+name: Exercise 09
 on: 
   workflow_dispatch:
 jobs:

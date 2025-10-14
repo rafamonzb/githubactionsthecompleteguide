@@ -1,4 +1,4 @@
-name: Exercise 2
+name: Exercise 02
 on: workflow_call
 jobs:
   lint:

@@ -1,7 +1,7 @@
 # As seen in https://github.com/marketplace/actions/deploy-github-pages-site 
 # and https://github.com/actions/upload-pages-artifact which both are GitHub's
 # official documentation.
-name: Exercise 3
+name: Exercise 03
 
 on: workflow_call
 

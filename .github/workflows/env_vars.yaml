@@ -1,4 +1,4 @@
-name: Exercise 4
+name: Exercise 04
 on: workflow_dispatch
 env:
   globalVariable: globalEnvVariableToEcho
