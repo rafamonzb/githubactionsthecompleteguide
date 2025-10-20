@@ -1,7 +1,6 @@
 name: Exercise 11
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
 jobs:
   coverage_report:
     runs-on: ubuntu-latest
