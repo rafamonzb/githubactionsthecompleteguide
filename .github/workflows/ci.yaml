@@ -2,10 +2,42 @@ name: CI
 on: workflow_dispatch
 jobs:
   lint:
-    uses: ./.github/workflows/lint.yaml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Dependency install
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
   test:
     needs: lint
-    uses: ./.github/workflows/test.yaml
+    environment: stage-2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Dependency install
+        run: npm ci
+      - name: Run test
+        run: npm run test
   build:
     needs: test
-    uses: ./.github/workflows/build-deploy.yaml
+    environment: stage-3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Upload artifact files
+        id: upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: src
