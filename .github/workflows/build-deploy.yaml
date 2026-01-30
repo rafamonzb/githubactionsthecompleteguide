@@ -3,7 +3,7 @@
 # official documentation.
 name: Exercise 03
 
-on: workflow_call
+on: workflow_dispatch
 
 permissions:
   contents: read
