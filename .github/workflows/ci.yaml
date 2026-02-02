@@ -1,5 +1,12 @@
 name: CI
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      publish_changes:
+        description: "Set to false to skip the Solution upload"
+        required: true
+        type: boolean
+        default: true
 jobs:
   lint:
     runs-on: ubuntu-latest
